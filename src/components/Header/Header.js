@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-grid-system";
-import { SearchBar } from 'react-native-elements';
-
-
 
 export default class Header extends Component {
 
