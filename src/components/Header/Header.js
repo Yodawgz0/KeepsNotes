@@ -13,7 +13,7 @@ export default class Header extends Component {
           </Col>
 
           <Col>
-
+            
           </Col>
        </Row>
       </div>
