@@ -1,83 +1,28 @@
-import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import RefreshIcon from '@material-ui/icons/Refresh';
-import SettingsIcon from '@material-ui/icons/Settings';
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import InputBase from "@material-ui/core/InputBase";
+import Badge from "@material-ui/core/Badge";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MailIcon from "@material-ui/icons/Mail";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import MoreIcon from "@material-ui/icons/MoreVert";
+import RefreshIcon from "@material-ui/icons/Refresh";
+import SettingsIcon from "@material-ui/icons/Settings";
 import { Image } from "react-bootstrap";
-import "./header.css";
+import { useStyles } from "./headerstyles.js";
 
-const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
-  search: {
-    position: "relative",
-    borderRadius: 16,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  inputRoot: {
-    color: "inherit",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-  sectionDesktop:{
-    display: 'flex',
-    [theme.breakpoints.up('md')]:{
-      display:'none'
-    }
-  }
-}));
 
 const Header = () => {
+
+  var isOpen = false;
+
   const classes = useStyles();
   return (
     <div className={classes.grow}>
@@ -101,6 +46,8 @@ const Header = () => {
           >
             Keeps
           </Typography>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}></div>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -114,23 +61,23 @@ const Header = () => {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <div className={classes.grow}/>
-          <div className={classes.sectionDesktop}/>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}></div>
           <IconButton aria-label="refresh" color="inherit">
-                <RefreshIcon />
-           </IconButton>
-           <IconButton aria-label="notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="refresh" color="inherit">
-                <SettingsIcon />
-           </IconButton>
-           <div className="spacings"/>
-           <IconButton aria-label="refresh" color="inherit">
-             <AccountCircle />
-           </IconButton>
+            <RefreshIcon />
+          </IconButton>
+          <IconButton aria-label="notifications" color="inherit">
+            <Badge badgeContent={17} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <IconButton aria-label="refresh" color="inherit">
+            <SettingsIcon />
+          </IconButton>
+          <div className="spacings" />
+          <IconButton aria-label="refresh" color="inherit">
+            <AccountCircle />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
